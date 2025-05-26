@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Feedback | Luxe Nails by Lu</title>
+    <style>
+        :root {
+            --primary: #d4afb9; /* Rose gold */
+            --secondary: #f5e6e8; /* Light pink */
+            --dark: #3a2e39; /* Deep plum */
+            --accent: #c17c74; /* Terracotta */
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fff9fb;
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        /* Testimonial Cards */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: """;
+            font-family: serif;
+            font-size: 5rem;
+            color: var(--secondary);
+            position: absolute;
+            top: -1rem;
+            left: 0.5rem;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+            text-align: right;
+        }
+        
+        /* Product Badge */
+        .product-badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 0.2rem 0.5rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Feedback Form Mockup (Static) */
+        .feedback-mockup {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 3rem auto;
+            max-width: 600px;
+            text-align: center;
+        }
+        
+        .mockup-form {
+            border: 2px dashed var(--secondary);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        
+        .mockup-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            cursor: not-allowed;
+        }
+        
+        .response-template {
+            background: #f8f8f8;
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 2rem 0;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">Luxe Nails by Lu</div>
+        <p>Client Feedback Gallery</p>
+    </header>
+    
+    <div class="container">
+        <h2 style="text-align: center;">What Our Clients Say</h2>
+        
+        <div class="testimonials">
+            <!-- Original Service Testimonials -->
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    Lu is a true artist! My chrome French tips lasted 3 weeks without a chip. 
+                    The salon is so clean and relaxing—I won’t go anywhere else!
+                </p>
+                <p class="testimonial-author">— Sophia T.</p>
+            </div>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    The detailed nail art blew my mind. I showed my tech a Pinterest pic, 
+                    and she made it even better. 5 stars!
+                </p>
+                <p class="testimonial-author">— Jamie L.</p>
+            </div>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    Best pedicure in town. The massage chair + hot stones = heaven. 
+                    Worth every penny!
+                </p>
+                <p class="testimonial-author">— Mia R.</p>
+            </div>
+            
+            <!-- NEW PRODUCT TESTIMONIALS (Added below originals) -->
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    The Luxe Cuticle Oil saved my dry nails! Absorbs quickly and smells like vanilla roses. 
+                    Already bought 3 backups!
+                </p>
+                <p class="testimonial-author">— Taylor M.</p>
+                <span class="product-badge">Product: Cuticle Oil</span>
+            </div>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    Obsessed with the Gel Top Coat. My manicure stayed shiny for 4 weeks without peeling. 
+                    Worth every cent!
+                </p>
+                <p class="testimonial-author">— Alex K.</p>
+                <span class="product-badge">Product: Gel Top Coat</span>
+            </div>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    The nail art stamping kit is perfection! Even as a beginner, I created salon-quality designs. 
+                    Tutorials were so helpful.
+                </p>
+                <p class="testimonial-author">— Jordan P.</p>
+                <span class="product-badge">Product: Stamping Kit</span>
+            </div>
+        </div>
+        
+        <!-- Feedback Form Mockup (Static) -->
+        <div class="feedback-mockup">
+            <h3>We Value Your Feedback</h3>
+            <p>Share your experience with us!</p>
+            
+            <div class="mockup-form">
+                <p>[Your Name]</p>
+                <p>[Your Email]</p>
+                <p>⭐️⭐️⭐️⭐️⭐️ (Rating)</p>
+                <p>[Your Comments]</p>
+                <button class="mockup-btn" disabled>Submit Feedback</button>
+            </div>
+            
+            <!-- Response Template -->
+            <div class="response-template">
+                <strong>Our Response to Feedback:</strong><br>
+                "We’re sorry your experience didn’t meet expectations. Please DM us so we can make it right—your satisfaction matters!"
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        &copy; 2025 Luxe Nails by Lu | All Rights Reserved
+    </footer>
+</body>
+</html>

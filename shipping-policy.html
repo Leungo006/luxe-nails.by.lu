@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Policy | Luxe Nails by LU</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Modern, clean styling */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background: #fff9fb;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Elegant header */
+        header {
+            background: linear-gradient(135deg, #ff6b98, #d4afb9);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo-text span {
+            color: #5d2a42;
+        }
+        
+        /* Navigation styling */
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: #5d2a42;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #5d2a42;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Announcement bar */
+        .announcement {
+            background: #5d2a42;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        
+        /* Content sections */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #5d2a42;
+            font-size: 36px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: #ff6b98;
+            bottom: -15px;
+            left: 0;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        /* Policy list styling */
+        .policy-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .policy-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .policy-list li::before {
+            content: '•';
+            color: #ff6b98;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #5d2a42;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 20px;
+            }
+            
+            nav a {
+                margin: 0 10px;
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement">
+        <p>✨ Free shipping on all orders over P110</p>
+    </div>
+
+    <!-- Elegant Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo-text">LUXE<span>NAILS</span></a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="shipping-policy.html">Shipping Policy</a>
+                <a href="services.html">Services</a>
+                <a href="register.html">Register</a>
+                <a href="login.html">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1>Shipping Policy</h1>
+        
+        <ul class="policy-list">
+            <li>Orders placed take 3-5 working days to be delivered</li>
+            <li>Polishes/Gels: Packaged with bubble wrap to prevent leaks/breaks</li>
+            <li>Press-Ons/Tools: Shipped in sturdy boxes to avoid damage</li>
+            <li>All orders are processed within 24-48 hours of purchase</li>
+            <li>Delivery times may vary during holidays and peak seasons</li>
+            <li>We currently ship within Botswana only</li>
+            <li>Tracking information will be provided once your order ships</li>
+        </ul>
+        
+        <p>For any shipping inquiries, please contact us at <a href="mailto:shipping@luxenails.com" style="color:#ff6b98;">shipping@luxenails.com</a></p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Luxe Nails by LU. All rights reserved.</p>
+    </footer>
+</body>
+</html>

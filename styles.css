@@ -1,0 +1,85 @@
+body {
+    font-family: 'Outfit', sans-serif;
+    color: #333;
+    background-color: #dd7ead;
+    background-image: url('');
+    background-repeat: repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  
+  header {
+    background-color: #f9f5f0;
+    color: rgb(206, 195, 195);
+    padding: 20px;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  main img {
+    max-width: 50%;
+    height: 50px;
+    display: block;
+    margin: 10px 0;
+    border: 5px solid #142e38;
+    border-radius: 5px;
+  }
+
+  /* Product Cards*/
+  .product-card {
+    border: 2px solid rgb(206, 195, 195);
+    padding: 1rem;
+    margin-bottom: 1 rem;
+    text-align: center;
+    background-color: rgba(230, 212, 212, 0.5);
+    transition: transform 0.3s; 
+    max-width: 100%
+  } 
+  
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  p {
+    font-size: 1.1em;
+  }
+  
+  a {
+    color: #d486b6;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  main a[href^="mailto:"] {
+    color: #c15ce0;
+    font-weight: 300;
+  }
+

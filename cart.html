@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | LUXE Nails by Lu</title>
+    <style>
+        :root {
+            --primary: #d4afb9; /* Soft rose gold */
+            --secondary: #f5e6e8; /* Light pink */
+            --dark: #3a2e39; /* Deep plum */
+            --light: #fff9fb; /* White with pink undertone */
+            --accent: #c17c74; /* Muted terracotta */
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--dark);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .cart-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .cart-items {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .cart-summary {
+            width: 300px;
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        
+        .cart-item {
+            display: flex;
+            background-color: white;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        
+        .item-image {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+        }
+        
+        .item-details {
+            padding: 20px;
+            flex: 1;
+        }
+        
+        .item-name {
+            font-weight: 600;
+            margin: 0 0 5px 0;
+        }
+        
+        .item-price {
+            color: var(--accent);
+            font-weight: 600;
+            margin: 10px 0;
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        
+        .quantity-btn {
+            background-color: var(--secondary);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .quantity {
+            margin: 0 15px;
+            font-weight: 600;
+        }
+        
+        .remove-item {
+            background: none;
+            border: none;
+            color: var(--accent);
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        
+        .summary-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-top: 0;
+            border-bottom: 1px solid var(--secondary);
+            padding-bottom: 15px;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+        }
+        
+        .total {
+            font-weight: 600;
+            font-size: 18px;
+            border-top: 1px solid var(--secondary);
+            padding-top: 15px;
+        }
+        
+        .checkout-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        
+        .checkout-btn:hover {
+            background-color: var(--dark);
+        }
+        
+        .continue-shopping {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 50px 0;
+        }
+        
+        .empty-cart p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        .shop-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        
+        .shop-btn:hover {
+            background-color: var(--dark);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Luxe Nails <span>by Lu</span></div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <h1>Your Cart</h1>
+        
+        <!-- Empty cart state (shown by default) -->
+        <div id="empty-cart" class="empty-cart">
+            <h2>Your cart is empty</h2>
+            <p>Browse our premium nail products and services</p>
+            <a href="shop.html" class="shop-btn">Shop Now</a>
+        </div>
+        
+        <!-- Cart with items (hidden by default) -->
+        <div id="cart-with-items" class="cart-container" style="display: none;">
+            <div class="cart-items" id="cart-items-container">
+                <!-- Cart items will be dynamically inserted here -->
+            </div>
+            
+            <div class="cart-summary">
+                <h3 class="summary-title">Order Summary</h3>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">P0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Service Fee</span>
+                    <span>P5.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="total">P5.00</span>
+                </div>
+                <button class="checkout-btn">Checkout</button>
+                <a href="shop.html" class="continue-shopping">Continue Shopping</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get cart from localStorage
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const emptyCartDiv = document.getElementById('empty-cart');
+            const cartWithItemsDiv = document.getElementById('cart-with-items');
+            const cartItemsContainer = document.getElementById('cart-items-container');
+            const subtotalElement = document.getElementById('subtotal');
+            const totalElement = document.getElementById('total');
+            
+            // Display cart contents
+            if (cart.length > 0) {
+                emptyCartDiv.style.display = 'none';
+                cartWithItemsDiv.style.display = 'flex';
+                
+                let subtotal = 0;
+                
+                // Add each item to the cart display
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    subtotal += itemTotal;
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <img src="${item.id}.jpg" alt="${item.name}" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">${item.name}</h3>
+                            <div class="item-price">P${item.price.toFixed(2)}</div>
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus" data-id="${item.id}">-</button>
+                                <span class="quantity">${item.quantity}</span>
+                                <button class="quantity-btn plus" data-id="${item.id}">+</button>
+                            </div>
+                            <button class="remove-item" data-id="${item.id}">Remove</button>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(cartItem);
+                });
+                
+                // Update totals
+                subtotalElement.textContent = `P${subtotal.toFixed(2)}`;
+                totalElement.textContent = `P${(subtotal + 5).toFixed(2)}`;
+                
+                // Add event listeners for quantity buttons
+                document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        updateQuantity(this.getAttribute('data-id'), -1);
+                    });
+                });
+                
+                document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        updateQuantity(this.getAttribute('data-id'), 1);
+                    });
+                });
+                
+                // Add event listeners for remove buttons
+                document.querySelectorAll('.remove-item').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        removeItem(this.getAttribute('data-id'));
+                    });
+                });
+            }
+            
+            // Function to update item quantity
+            function updateQuantity(id, change) {
+                const cart = JSON.parse(localStorage.getItem('cart'));
+                const itemIndex = cart.findIndex(item => item.id === id);
+                
+                if (itemIndex !== -1) {
+                    cart[itemIndex].quantity += change;
+                    
+                    // Remove item if quantity reaches 0
+                    if (cart[itemIndex].quantity <= 0) {
+                        cart.splice(itemIndex, 1);
+                    }
+                    
+                    // Save updated cart
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    
+                    // Reload page to update display
+                    location.reload();
+                }
+            }
+            
+            // Function to remove item
+            function removeItem(id) {
+                const cart = JSON.parse(localStorage.getItem('cart'));
+                const updatedCart = cart.filter(item => item.id !== id);
+                
+                // Save updated cart
+                localStorage.setItem('cart', JSON.stringify(updatedCart));
+                
+                // Reload page to update display
+                location.reload();
+            }
+            
+            // Checkout button
+            document.querySelector('.checkout-btn')?.addEventListener('click', function() {
+                alert('Checkout functionality would be implemented here!');
+                // In a real implementation, this would redirect to checkout page
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Luxe Nails by LU</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Modern, clean styling */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background: #fff9fb;
+        }
+        
+        /* Elegant header */
+        header {
+            background: linear-gradient(135deg, #ff6b98, #d4afb9);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo-text span {
+            color: #5d2a42;
+        }
+        
+        /* Navigation styling */
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: #5d2a42;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #5d2a42;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Content sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #5d2a42;
+            font-size: 36px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: #ff6b98;
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .subtitle {
+            color: #ff6b98;
+            font-weight: 500;
+            margin-bottom: 30px;
+            display: block;
+        }
+        
+        /* Story section */
+        .story-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .story-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .story-content {
+            flex: 1;
+        }
+        
+        /* Values section - Updated with pink accent */
+        .mission-values {
+            background: linear-gradient(135deg, rgba(255,235,240,0.9), rgba(255,245,250,0.9));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mission-values::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: #ffb6c1;
+            border-radius: 50%;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .mission-values::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -50px;
+            width: 300px;
+            height: 300px;
+            background: #ffb6c1;
+            border-radius: 50%;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid #ff6b98;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .value-icon {
+            font-size: 40px;
+            color: #ff6b98;
+            margin-bottom: 20px;
+        }
+        
+        /* Team section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .team-member {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid #ff6b98;
+        }
+        
+        .role {
+            color: #ff6b98;
+            font-weight: 500;
+            margin: 10px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 20px;
+            }
+            
+            nav a {
+                margin: 0 10px;
+                display: inline-block;
+            }
+            
+            .story-container {
+                flex-direction: column;
+            }
+            
+            .mission-values::before,
+            .mission-values::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Elegant Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo-text">LUXE<span>NAILS</span></a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="shipping-policy.html">Shipping Policy</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Founder's Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-container">
+                <div class="story-content">
+                    <h2>Meet LU</h2>
+                    <span class="subtitle">Founder & Lead Nail Artist</span>
+                    <p>What began as a passion project in my tiny apartment has blossomed into Luxe Nails - a brand dedicated to bringing salon-quality nail care to your home. As a certified nail technician with over 5 years of experience, I saw firsthand how expensive and time-consuming salon visits could be.</p>
+                    <p>In 2020, I started creating press-on nail sets for friends, combining my technical expertise with creative designs. The overwhelming positive response led me to develop our signature gel polish line and beginner-friendly kits.</p>
+                    <p>Every Luxe Nails product is crafted with the same attention to detail I give my salon clients - just without the salon price tag.</p>
+                </div>
+                <div class="story-image">
+                    <img src="IMG-20241108-WA0070.jpg" alt="LU, Founder of Luxe Nails" style="width:100%; height:auto;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Values - Now with pink accent -->
+    <section class="mission-values">
+        <div class="container">
+            <h2>Our Core Values</h2>
+            <span class="subtitle">What makes Luxe Nails different</span>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Cruelty-Free</h3>
+                    <p>All our products are 100% vegan and never tested on animals. We're proud to be Leaping Bunny certified.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Eco-Conscious</h3>
+                    <p>From biodegradable glitter to recyclable packaging, we minimize our environmental impact at every step.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Salon Quality</h3>
+                    <p>Professional-grade formulas that last 2+ weeks without chipping or peeling.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Beginner Friendly</h3>
+                    <p>Detailed tutorials and foolproof application tools make perfect nails achievable for everyone.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Endless Creativity</h3>
+                    <p>With 100+ colors and seasonal collections, express your unique style.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Made for Real Life</h3>
+                    <p>Products designed to withstand typing, cleaning, and everyday wear.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2>The Luxe Team</h2>
+            <span class="subtitle">Meet the people behind your perfect manicure</span>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="IMG-20250128-WA0179.jpg" alt="LU">
+                    <h3>LU</h3>
+                    <p class="role">Founder & Creative Director</p>
+                    <p>Certified nail technician with a passion for making professional nails accessible.</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="IMG-20241226-WA0013.jpg" alt="Rea">
+                    <h3>Rea</h3>
+                    <p class="role">Product Developer</p>
+                    <p>Chemistry whiz who formulates our long-wearing, gentle polishes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

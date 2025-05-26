@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | Luxe Nails by Lu</title>
+    <style>
+        :root {
+            --primary: #d4afb9; /* Soft rose gold */
+            --secondary: #f5e6e8; /* Light pink */
+            --dark: #3a2e39; /* Deep plum */
+            --light: #fff9fb; /* White with pink undertone */
+            --accent: #c17c74; /* Muted terracotta */
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1604654894610-df63bc536371');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .register-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--dark);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark);
+            margin-bottom: 25px;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--secondary);
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+            box-sizing: border-box;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .name-fields {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .name-fields .form-group {
+            flex: 1;
+        }
+        
+        .password-strength {
+            height: 4px;
+            background: #eee;
+            margin-top: 5px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .strength-meter {
+            height: 100%;
+            width: 0%;
+            background: #e74c3c;
+            transition: all 0.3s;
+        }
+        
+        .terms {
+            display: flex;
+            align-items: flex-start;
+            margin: 25px 0;
+        }
+        
+        .terms input {
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        
+        .terms label {
+            font-weight: normal;
+            font-size: 14px;
+        }
+        
+        .terms a {
+            color: var(--accent);
+        }
+        
+        .register-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .register-btn:hover {
+            background-color: var(--dark);
+        }
+        
+        .login-link {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 14px;
+        }
+        
+        .login-link a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            font-size: 13px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .success-message {
+            color: #2ecc71;
+            text-align: center;
+            margin-bottom: 20px;
+            display: none;
+            font-weight: 500;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="register-container">
+        <div class="logo">Luxe Nails <span>by Lu</span></div>
+        <h1>Create Your Account</h1>
+        
+        <div class="success-message" id="successMessage">Account created successfully! Redirecting to login page...</div>
+        
+        <form id="registrationForm">
+            <div class="name-fields">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" required>
+                    <div class="error-message" id="firstNameError">Please enter your first name</div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" required>
+                    <div class="error-message" id="lastNameError">Please enter your last name</div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" required>
+                <div class="error-message" id="emailError">Please enter a valid email address</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="+267XXXXXXXX" pattern="\+267\d{8}" required>
+                <div class="error-message" id="phoneError">Please enter a valid Botswana number starting with +267 followed by 8 digits</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+                <div class="password-strength">
+                    <div class="strength-meter" id="strengthMeter"></div>
+                </div>
+                <div class="error-message" id="passwordError">Password must be at least 8 characters</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" required>
+                <div class="error-message" id="confirmPasswordError">Passwords do not match</div>
+            </div>
+            
+            <div class="terms">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+            </div>
+            
+            <button type="submit" class="register-btn">Create Account</button>
+            
+            <div class="login-link">
+                Already have an account? <a href="login.html">Sign in</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Password strength indicator
+        document.getElementById('password').addEventListener('input', function(e) {
+            const password = e.target.value;
+            const strengthMeter = document.getElementById('strengthMeter');
+            let strength = 0;
+            
+            if (password.length > 7) strength += 1;
+            if (password.match(/[a-z]/)) strength += 1;
+            if (password.match(/[A-Z]/)) strength += 1;
+            if (password.match(/[0-9]/)) strength += 1;
+            if (password.match(/[^a-zA-Z0-9]/)) strength += 1;
+            
+            const width = (strength / 5) * 100;
+            strengthMeter.style.width = width + '%';
+            
+            if (strength < 2) {
+                strengthMeter.style.backgroundColor = '#e74c3c';
+            } else if (strength < 4) {
+                strengthMeter.style.backgroundColor = '#f39c12';
+            } else {
+                strengthMeter.style.backgroundColor = '#2ecc71';
+            }
+        });
+        
+        // Form validation and submission
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
+            
+            // Reset errors
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Validate first name
+            const firstName = document.getElementById('firstName').value.trim();
+            if (!firstName) {
+                document.getElementById('firstNameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate last name
+            const lastName = document.getElementById('lastName').value.trim();
+            if (!lastName) {
+                document.getElementById('lastNameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate email
+            const email = document.getElementById('email').value.trim();
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate Botswana phone number
+            const phone = document.getElementById('phone').value.trim();
+            if (!/^\+267\d{8}$/.test(phone)) {
+                document.getElementById('phoneError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate password
+            const password = document.getElementById('password').value;
+            if (password.length < 8) {
+                document.getElementById('passwordError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate confirm password
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            if (password !== confirmPassword) {
+                document.getElementById('confirmPasswordError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate terms
+            if (!document.getElementById('terms').checked) {
+                alert('Please agree to the Terms of Service and Privacy Policy');
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // In a real app, you would send this data to your server
+                const formData = {
+                    firstName,
+                    lastName,
+                    email,
+                    phone,
+                    password // Note: In production, never store passwords in plain text
+                };
+                
+                console.log('Form submitted successfully:', formData);
+                
+                // Show success message
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('registrationForm').style.display = 'none';
+                
+                // Redirect to login page after 2 seconds
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 2000);
+            }
+        });
+
+        // Format phone number as user types
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let phone = e.target.value.replace(/\D/g, '');
+            if (phone.startsWith('267')) {
+                phone = '+' + phone;
+            }
+            if (!phone.startsWith('+267')) {
+                phone = '+267' + phone.substring(phone.indexOf('267') + 3);
+            }
+            // Limit to 8 digits after +267
+            if (phone.length > 12) {
+                phone = phone.substring(0, 12);
+            }
+            e.target.value = phone;
+        });
+    </script>
+</body>
+</html>
